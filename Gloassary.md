@@ -9,7 +9,8 @@ Think of it as the "lag" in a system—how long it takes to react to a stimulus.
 
 Here are a few examples to make it clearer:
 
-        Network latency: The time it takes for data to travel from your device to a server and back. A round-trip ping to a server is a good measure of this.
+        Network latency: The time it takes for data to travel from your device to a server and back.
+        A round-trip ping to a server is a good measure of this.
 
         Database latency: How long it takes for a query to be processed and return results.
 
@@ -52,7 +53,8 @@ In systems like MongoDB (with WiredTiger), concurrency control happens at the do
 
 ## What are the advantages of optimistic concurrency control?
 
-Optimistic Concurrency Control (OCC) is like trusting everyone to play fair—until the very end, when you double-check that no one stepped on anyone else’s toes. It’s especially useful in systems where conflicts are rare. Here’s why it shines:
+Optimistic Concurrency Control (OCC) is like trusting everyone to play fair—until the very end, 
+when you double-check that no one stepped on anyone else’s toes. It’s especially useful in systems where conflicts are rare. Here’s why it shines:
 
     1. Minimal Locking Overhead
 
@@ -92,30 +94,36 @@ Here are the key drawbacks:
 
 1. High Cost of Rollbacks
 
-    If a conflict is detected during the validation phase, the entire transaction must be rolled back and retried. This can be expensive, especially for long-running or complex transactions.
+    If a conflict is detected during the validation phase, the entire transaction must be rolled back and retried.
+    This can be expensive, especially for long-running or complex transactions.
 
-2. Poor Performance in High-Conflict Environments
+3. Poor Performance in High-Conflict Environments
 
-    OCC assumes conflicts are rare. But in systems with frequent concurrent updates—like collaborative editing or high-traffic e-commerce—conflicts become common, leading to repeated rollbacks and wasted work.
+    OCC assumes conflicts are rare. But in systems with frequent concurrent updates—like collaborative editing or
+   high-traffic e-commerce—conflicts become common, leading to repeated rollbacks and wasted work.
 
-3. Starvation of Large Transactions
+5. Starvation of Large Transactions
 
-    When small, fast transactions frequently conflict with larger ones, the larger ones may keep getting rolled back. This can lead to starvation, where long transactions never complete successfully.
+    When small, fast transactions frequently conflict with larger ones, the larger ones may keep getting rolled back.
+   This can lead to starvation, where long transactions never complete successfully.
 
-4. Validation Overhead
+7. Validation Overhead
 
-    The validation phase adds computational overhead, especially when many transactions are in-flight. This can impact performance in systems with high concurrency.
+    The validation phase adds computational overhead, especially when many transactions are in-flight.
+   This can impact performance in systems with high concurrency.
 
-5. Limited Support for Incremental Sharing
+9. Limited Support for Incremental Sharing
 
-    OCC doesn’t allow intermediate results of one transaction to be shared with others during execution. This limits concurrency in workflows that could otherwise benefit from partial progress sharing.
+    OCC doesn’t allow intermediate results of one transaction to be shared with others during execution.
+   This limits concurrency in workflows that could otherwise benefit from partial progress sharing.
 
 In short, OCC is like trusting everyone to work independently and only checking for issues at the end. It’s efficient when that trust holds—but when it doesn’t, the cost of cleaning up can outweigh the benefits.
 
 
 ## Optimistic Locking vs Pessimistic Locking
 
-Here’s a clear breakdown of Optimistic Locking vs Pessimistic Locking, especially relevant when you're designing systems that deal with concurrent data access:
+Here’s a clear breakdown of Optimistic Locking vs Pessimistic Locking, especially relevant
+when you're designing systems that deal with concurrent data access:
 
 ### Optimistic Locking
 
@@ -182,7 +190,8 @@ Here’s a quick tour of real-world examples that highlight the difference betwe
 
     These systems prioritize availability and partition tolerance, accepting temporary inconsistencies:
 
-    Amazon DynamoDB: By default, it offers eventual consistency for faster reads across distributed regions. Great for shopping carts, product catalogs, or social feeds.
+    Amazon DynamoDB: By default, it offers eventual consistency for faster reads across distributed regions. 
+    Great for shopping carts, product catalogs, or social feeds.
 
     Apache Cassandra: Designed for high availability and partition tolerance, often used in messaging apps or IoT platforms.
 
@@ -212,7 +221,8 @@ Here’s a quick tour of real-world examples that highlight the difference betwe
 
 ### database selection via use case
 
-Choosing the right database depends heavily on your application's data model, access patterns, consistency requirements, and scalability needs. Here's a breakdown of common use cases and the types of databases that typically fit best:
+Choosing the right database depends heavily on your application's data model, access patterns, consistency requirements, and scalability needs. 
+Here's a breakdown of common use cases and the types of databases that typically fit best:
 
     1. Relational Databases (e.g., PostgreSQL, MySQL, Oracle)
 
