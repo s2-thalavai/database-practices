@@ -48,17 +48,22 @@ both might succeed, leading to chaos. With proper control, only one booking goes
         Optimistic concurrency control: Transactions proceed without locking, 
         but validate at commit time to ensure no conflicts occurred.
 
-In systems like MongoDB (with WiredTiger), concurrency control happens at the document level, allowing high throughput and fine-grained parallelism. In traditional SQL databases, it often involves row-level or table-level locks.
+In systems like MongoDB (with WiredTiger), concurrency control happens at the document level, 
+allowing high throughput and fine-grained parallelism.
+
+In traditional SQL databases, it often involves row-level or table-level locks.
 
 
 ## What are the advantages of optimistic concurrency control?
 
 Optimistic Concurrency Control (OCC) is like trusting everyone to play fair—until the very end, 
-when you double-check that no one stepped on anyone else’s toes. It’s especially useful in systems where conflicts are rare. Here’s why it shines:
+when you double-check that no one stepped on anyone else’s toes. It’s especially useful in systems where conflicts are rare. 
+Here’s why it shines:
 
     1. Minimal Locking Overhead
 
-        OCC avoids locking data during transactions. This means no waiting around for locks to be released, which reduces contention and improves system responsiveness.
+        OCC avoids locking data during transactions. This means no waiting around for locks to be released, 
+        which reduces contention and improves system responsiveness.
 
     2. Higher Throughput
     
@@ -83,7 +88,8 @@ when you double-check that no one stepped on anyone else’s toes. It’s especi
 That said, OCC isn’t ideal for high-conflict environments—frequent rollbacks can hurt performance. 
 But in the right context, it’s a sleek, efficient way to keep things moving.
 
-Want to explore how OCC compares to pessimistic locking in microservices or distributed databases? That could be a fun deep dive.
+Want to explore how OCC compares to pessimistic locking in microservices or distributed databases? 
+That could be a fun deep dive.
 
 ## What are the disadvantages of optimistic concurrency control?
 
@@ -117,7 +123,8 @@ Here are the key drawbacks:
     OCC doesn’t allow intermediate results of one transaction to be shared with others during execution.
    This limits concurrency in workflows that could otherwise benefit from partial progress sharing.
 
-In short, OCC is like trusting everyone to work independently and only checking for issues at the end. It’s efficient when that trust holds—but when it doesn’t, the cost of cleaning up can outweigh the benefits.
+In short, OCC is like trusting everyone to work independently and only checking for issues at the end. 
+It’s efficient when that trust holds—but when it doesn’t, the cost of cleaning up can outweigh the benefits.
 
 
 ## Optimistic Locking vs Pessimistic Locking
@@ -197,7 +204,8 @@ Here’s a quick tour of real-world examples that highlight the difference betwe
 
     Couchbase (in certain modes): Offers eventual consistency for mobile and edge deployments.
 
-    Social Media Platforms: When you like a post on Instagram or Twitter, others might not see it immediately—that’s eventual consistency in action.
+    Social Media Platforms: When you like a post on Instagram or Twitter, 
+    others might not see it immediately—that’s eventual consistency in action.
 
 ## Strong Consistency – Examples
 
@@ -221,7 +229,9 @@ Here’s a quick tour of real-world examples that highlight the difference betwe
 
 ### database selection via use case
 
-Choosing the right database depends heavily on your application's data model, access patterns, consistency requirements, and scalability needs. 
+Choosing the right database depends heavily on your application's data model, 
+access patterns, consistency requirements, and scalability needs. 
+
 Here's a breakdown of common use cases and the types of databases that typically fit best:
 
     1. Relational Databases (e.g., PostgreSQL, MySQL, Oracle)
