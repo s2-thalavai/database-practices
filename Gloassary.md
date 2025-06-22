@@ -9,12 +9,18 @@ Think of it as the "lag" in a system—how long it takes to react to a stimulus.
 
 Here are a few examples to make it clearer:
 
-        Network latency: The time it takes for data to travel from your device to a server and back.
-        A round-trip ping to a server is a good measure of this.
+        Network latency: 
+        
+                The time it takes for data to travel from your device to a server and back.
+                A round-trip ping to a server is a good measure of this.
 
-        Database latency: How long it takes for a query to be processed and return results.
+        Database latency: 
+        
+                How long it takes for a query to be processed and return results.
 
-        Application latency: The delay a user experiences from an action (e.g., tapping a button) to the system showing the output.
+        Application latency: 
+        
+                The delay a user experiences from an action (e.g., tapping a button) to the system showing the output.
 
 High latency can feel like sluggish performance, while low latency means snappy, 
 real-time responsiveness—something especially critical in cloud systems, 
