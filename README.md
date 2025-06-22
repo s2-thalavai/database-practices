@@ -24,28 +24,6 @@ tabular structures and normalization patterns of SQL started to show cracks in a
 
 MongoDB was born to address these gaps—especially for use cases requiring flexibility, speed, and scalability.
 
-
-### what is latency?
-
-Latency is the time delay between an action and its corresponding response.
-
-In computing and networking, it's often used to describe the delay between when a request 
-is made (say, clicking a link or calling an API) and when the first byte of the response is received. 
-Think of it as the "lag" in a system—how long it takes to react to a stimulus.
-
-Here are a few examples to make it clearer:
-
-        Network latency: The time it takes for data to travel from your device to a server and back. A round-trip ping to a server is a good measure of this.
-
-        Database latency: How long it takes for a query to be processed and return results.
-
-        Application latency: The delay a user experiences from an action (e.g., tapping a button) to the system showing the output.
-
-High latency can feel like sluggish performance, while low latency means snappy, 
-real-time responsiveness—something especially critical in cloud systems, 
-gaming, trading platforms, or video calls.
-
-
 ## Key Differences from SQL Databases
 
 ![alt text](image.png)
@@ -126,32 +104,3 @@ Here’s what makes WiredTiger tick:
 
     In short, WiredTiger is what gives MongoDB its modern edge—balancing speed, scalability, and reliability. If you're curious, you can explore more on the WiredTiger Developer Site or the MongoDB Docs.
 
-
-## what is concurrency control
-
-Concurrency control is the set of techniques used to manage simultaneous operations on a database 
-without letting them interfere with each other. It ensures that when multiple users or 
-processes access or modify data at the same time, the integrity and consistency of the database are preserved.
-
-Imagine two people trying to book the last seat on a flight at the same time—without concurrency control, 
-both might succeed, leading to chaos. With proper control, only one booking goes through, and the other is gracefully handled.
-
-    Why It Matters
-
-            Prevents conflicts like lost updates, dirty reads, or inconsistent data
-
-            Maintains isolation between transactions (a key part of ACID properties)
-
-            Supports multi-user environments where parallel access is common
-
-    Common Techniques
-
-        Lock-based protocols: Transactions acquire locks on data before accessing it. 
-        Think of it like reserving a table before dining.
-
-        Timestamp ordering: Each transaction gets a timestamp, and operations are ordered accordingly to avoid conflicts.
-
-        Optimistic concurrency control: Transactions proceed without locking, 
-        but validate at commit time to ensure no conflicts occurred.
-
-In systems like MongoDB (with WiredTiger), concurrency control happens at the document level, allowing high throughput and fine-grained parallelism. In traditional SQL databases, it often involves row-level or table-level locks.
